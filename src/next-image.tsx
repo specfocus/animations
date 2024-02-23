@@ -5,6 +5,7 @@ interface NextImageProps {
     placeholder?: string; // URL for the blurred placeholder image
     alt: string;
     fill?: boolean; // Whether the image should use 'fill' layout
+    priority?: boolean;
 }
 
 const NextImage: React.FC<NextImageProps> = ({src, placeholder, alt, fill}) => {

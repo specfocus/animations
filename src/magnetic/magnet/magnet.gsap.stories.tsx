@@ -1,6 +1,6 @@
 import React from "react";
 import type {Meta, StoryObj} from "@storybook/react";
-import GsapMagnetic from "./magnet-with-gsap";
+import GsapMagnetic from "./magnet.gsap";
 import styled from "@emotion/styled";
 
 const Main = styled.div`

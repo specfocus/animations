@@ -5,7 +5,7 @@ import {FC, useRef} from "react";
 import Picture1 from "../../public/medias/parallax-scroll-4.jpg";
 import Picture2 from "../../public/medias/parallax-scroll-5.jpg";
 import Picture3 from "../../public/medias/parallax-scroll-6.jpg";
-import Image from "../NextImage";
+import Image from "../../next-image";
 // import Image from "next/image";
 
 interface DocumentProps {
@@ -144,7 +144,7 @@ const Document: FC<DocumentProps> = (props) => {
 
 Document.defaultProps = {
     backgroundColor: '#3f3f3f',
-    paddingTop: '300px',
+    paddingTop: '900px',
     minHeight: '2400px'
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import type {Meta, StoryObj} from "@storybook/react";
-import FramerMagnetic from "./magnet-with-framer-motion";
+import FramerMagnetic from "./magnet";
 import styled from "@emotion/styled";
 
 const Main = styled.div`

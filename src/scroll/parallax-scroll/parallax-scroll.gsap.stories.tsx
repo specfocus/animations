@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import type {Meta, StoryObj} from "@storybook/react";
-import Lenis from '@studio-freight/lenis';
+import Lenis from "@studio-freight/lenis";
 import {useEffect} from "react";
-import GSAP from "./parallax-scroll-with-gsap";
+import GSAP from "./parallax-scroll.gsap";
 
 const Container = styled.div`
     margin-top: 10vh;

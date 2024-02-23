@@ -1,32 +1,11 @@
+import React from "react";
 import type {Meta, StoryObj} from "@storybook/react";
-import Lenis from '@studio-freight/lenis';
-import {useEffect} from "react";
-import FramerMotion from "./parallax-scroll-with-framer-motion";
-
-const Page = () => {
-    useEffect(
-        () => {
-            const lenis = new Lenis();
-
-            function raf(time: number) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-
-            requestAnimationFrame(raf);
-        },
-        []
-    );
-
-    return (
-        <FramerMotion />
-    );
-};
+import SmoothScroll from "./smooth-scroll";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/parallax-with-framer-motion',
-    component: Page,
+    title: 'scroll/smooth',
+    component: SmoothScroll,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'fullscreen',
@@ -37,7 +16,7 @@ const meta = {
     argTypes: {
         // backgroundColor: {control: 'color'},
     },
-} satisfies Meta<typeof Page>;
+} satisfies Meta<typeof SmoothScroll>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -47,3 +26,5 @@ export const Primary: Story = {
     args: {
     },
 };
+
+
