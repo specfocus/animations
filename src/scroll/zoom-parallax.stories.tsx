@@ -1,6 +1,5 @@
 import React from "react";
 import type {Meta, StoryObj} from "@storybook/react";
-import "./button.css";
 
 interface ButtonProps {
     /**
@@ -28,7 +27,7 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-const Button = ({
+export const Button = ({
     primary = false,
     size = 'medium',
     backgroundColor,
@@ -38,7 +37,7 @@ const Button = ({
     const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
     return (
         <button
-            type="button"
+            type='button'
             className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
             style={{backgroundColor}}
             {...props}
@@ -50,17 +49,17 @@ const Button = ({
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: "vector/gooey-morth",
+    title: 'scroll/zoom-parallax',
     component: Button,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-        layout: "centered",
+        layout: 'fullscreen',
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-    tags: ["autodocs"],
+    tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        backgroundColor: {control: "color"},
+        backgroundColor: {control: 'color'},
     },
 } satisfies Meta<typeof Button>;
 
@@ -71,26 +70,27 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         primary: true,
-        label: "Button",
+        label: 'Button',
     },
 };
 
 export const Secondary: Story = {
     args: {
-        label: "Button",
+        label: 'Button',
     },
 };
 
 export const Large: Story = {
     args: {
-        size: "large",
-        label: "Button",
+        size: 'large',
+        label: 'Button',
     },
 };
 
 export const Small: Story = {
     args: {
-        size: "small",
-        label: "Button",
+        size: 'small',
+        label: 'Button',
     },
 };
+

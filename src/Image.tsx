@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 
-interface CustomImageProps {
+interface ImageProps {
     src: string;
     alt: string;
     width?: number;
@@ -8,7 +8,7 @@ interface CustomImageProps {
     layout?: 'fill' | 'responsive' | 'fixed';
 }
 
-const Image: React.FC<CustomImageProps> = ({src, alt, width, height, layout = 'responsive'}) => {
+const Image: React.FC<ImageProps> = ({src, alt, width, height, layout = 'responsive'}) => {
     const [loaded, setLoaded] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
 
