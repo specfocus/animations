@@ -2,55 +2,12 @@
 import styled from "@emotion/styled";
 import {motion, useScroll, useTransform} from "framer-motion";
 import {FC, useRef} from "react";
-import Picture1 from "../../public/medias/parallax-scroll-4.jpg";
-import Picture2 from "../../public/medias/parallax-scroll-5.jpg";
-import Picture3 from "../../public/medias/parallax-scroll-6.jpg";
 import Image from "../../next-image";
+import Picture1 from "../../../public/medias/parallax-scroll-4.jpg";
+import Picture2 from "../../../public/medias/parallax-scroll-5.jpg";
+import Picture3 from "../../../public/medias/parallax-scroll-6.jpg";
+import {Body, Container, Images, Word} from "./styled.module";
 // import Image from "next/image";
-
-interface DocumentProps {
-    backgroundColor?: string;
-    paddingTop?: string;
-    minHeight?: string;
-}
-
-export const Container = styled.div<DocumentProps>`
-    background-color: ${props => props.backgroundColor || 'black'};
-    padding-top: ${props => props.paddingTop || '0px'};
-    min-height: ${props => props.minHeight || '100vh'};
-`;
-
-export const Body = styled.div`
-    margin-left: 10vw;
-
-    h1 {
-        margin: 0px;
-        margin-top: 10px;
-        font-size: 5vw;
-        line-height: 5vw;
-        text-transform: uppercase;
-    }
-`;
-
-const Word = styled.p`
-    color: white;
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 3vw;
-    text-transform: uppercase;
-
-    span {
-        position: relative;
-    }
-`;
-
-export const Images = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    margin-top: 5vh;
-`;
 
 export const ImageContainer = styled(motion.div)`
     position: absolute;
@@ -80,6 +37,12 @@ export const ImageContainer = styled(motion.div)`
         z-index: 3;
     }
 `;
+
+interface DocumentProps {
+    backgroundColor?: string;
+    paddingTop?: string;
+    minHeight?: string;
+}
 
 const word = "with framer-motion";
 

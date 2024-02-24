@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import SmoothParallaxScroll from "./smooth-parallax-scroll"
+import ZoomParallax from "./zoom-parallax-scroll";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/smooth-parallax',
-    component: SmoothParallaxScroll,
+    title: 'scroll/zoom-parallax',
+    component: ZoomParallax,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'fullscreen',
@@ -15,7 +15,7 @@ const meta = {
     argTypes: {
         backgroundColor: {control: 'color'},
     },
-} satisfies Meta<typeof SmoothParallaxScroll>;
+} satisfies Meta<typeof ZoomParallax>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
