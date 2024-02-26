@@ -1,8 +1,17 @@
 "use client";
-import ZoomParallax from "./zoom-parallax";
-import {FC, PropsWithChildren, useEffect} from "react";
-import Lenis from "@studio-freight/lenis";
 import styled from "@emotion/styled";
+import Lenis from "@studio-freight/lenis";
+import {FC, PropsWithChildren, useEffect} from "react";
+import Picture1 from "../../../public/medias/zoom-parallax-1.jpg";
+import Picture2 from "../../../public/medias/zoom-parallax-2.jpg";
+import Picture3 from "../../../public/medias/zoom-parallax-3.jpg";
+import Picture4 from "../../../public/medias/zoom-parallax-4.jpg";
+import Picture5 from "../../../public/medias/zoom-parallax-5.jpg";
+import Picture6 from "../../../public/medias/zoom-parallax-6.jpg";
+import Picture7 from "../../../public/medias/zoom-parallax-7.jpg";
+import GalleryZoom from "./gallery-zoom";
+
+const images = [Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7];
 
 const Main = styled.main<SmoothParallaxProps>`
     background-color: ${({backgroundColor}) => backgroundColor};
@@ -32,7 +41,7 @@ const SmoothParallax: FC<PropsWithChildren<SmoothParallaxProps>> = ({ background
 
     return (
         <Main backgroundColor={backgroundColor}>
-            <ZoomParallax />
+            <GalleryZoom images={images} />
         </Main>
     );
 };
