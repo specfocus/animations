@@ -8,6 +8,6 @@ export interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
     background-color: ${props => props.backgroundColor || '#3f3f3f'};
-    padding-top: ${props => props.paddingTop || '400px'};
+    padding-top: ${props => props.paddingTop || '900px'};
     min-height: ${props => props.minHeight || '2400px'};
 `;

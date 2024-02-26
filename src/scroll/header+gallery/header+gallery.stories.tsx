@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import {useRef, type FC} from "react";
-import useLenisEffect from "../../use-lenis-effect";
 import {Container} from "../page.module";
+import useLenisEffect from "../use-lenis-effect";
 import HeadersAndGallery, {type HeaderAndGalleryProps} from "./header+gallery";
 import Picture4 from "/medias/parallax-scroll-4.jpg";
 import Picture5 from "/medias/parallax-scroll-5.jpg";

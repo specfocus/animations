@@ -1,1 +1,1 @@
-export {default} from "./gallery+zoom";
+export {default} from "./gallery+zoom.div";

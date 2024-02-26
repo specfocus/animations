@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import {useRef, type FC} from "react";
-import useLenisEffect from "../../use-lenis-effect";
 import {Container} from "../page.module";
+import useLenisEffect from "../use-lenis-effect";
 import FunHeader, {FunHeaderProps} from "./header+fun.gsap";
 
 const Page: FC<Omit<FunHeaderProps, 'container'>> = props => {

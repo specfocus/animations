@@ -1,15 +1,15 @@
 import {useScroll, useTransform} from "framer-motion";
-import {type FC, useRef} from "react";
+import {MutableRefObject, type FC} from "react";
 import Image from "../../next-image";
-import {Container, El, ImageContainer, Sticky} from "./styled.module";
+import {El, ImageContainer, Sticky} from "./styled.module";
 // import Image from "next/image";
 
-interface ZoomGalleryProps {
+export interface ZoomGalleryProps {
+    container?: MutableRefObject<HTMLDivElement | null>;
     images: string[];
 }
 
-const ZoomGallery: FC<ZoomGalleryProps> = ({ images }) => {
-    const container = useRef(null);
+const ZoomGallery: FC<ZoomGalleryProps> = ({container, images}) => {
     const {scrollYProgress} = useScroll({
         target: container,
         offset: ['start start', 'end end']
@@ -22,32 +22,30 @@ const ZoomGallery: FC<ZoomGalleryProps> = ({ images }) => {
     const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
     const scales = [scale4, scale5, scale6, scale5, scale6, scale8, scale9];
-    
 
-    const pictures = images.map((src, index) => ({ src, scale: scales[index]}));
+
+    const pictures = images.map((src, index) => ({src, scale: scales[index]}));
 
     return (
-        <Container ref={container}>
-            <Sticky>
-                {
-                    pictures.map(
-                        ({src, scale}, index) => {
-                            return (
-                                <El key={index} style={{scale}}>
-                                    <ImageContainer nth={0}>
-                                        <Image
-                                            src={src}
-                                            fill
-                                            alt="image"
-                                            placeholder='blur'
-                                        />
-                                    </ImageContainer>
-                                </El>
-                            );
-                        })
-                }
-            </Sticky>
-        </Container>
+        <Sticky>
+            {
+                pictures.map(
+                    ({src, scale}, index) => {
+                        return (
+                            <El key={index} style={{scale}}>
+                                <ImageContainer nth={0}>
+                                    <Image
+                                        src={src}
+                                        fill
+                                        alt="image"
+                                        placeholder='blur'
+                                    />
+                                </ImageContainer>
+                            </El>
+                        );
+                    })
+            }
+        </Sticky>
     );
 };
 
