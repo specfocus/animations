@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import GalleryZoom from "./gallery+zoom.example";
+import MarqueeHero from "./hero+marquee";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/gallery+zoom',
-    component: GalleryZoom,
+    title: 'scroll/hero+marquee',
+    component: MarqueeHero,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'fullscreen',
@@ -13,9 +13,9 @@ const meta = {
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        backgroundColor: {control: 'color'},
+        // backgroundColor: {control: 'color'},
     },
-} satisfies Meta<typeof GalleryZoom>;
+} satisfies Meta<typeof MarqueeHero>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -23,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
     args: {
-        backgroundColor: '#3f3f3f',
+        image: '/medias/background.jpeg',
+        text: 'World ● I am here! ● '
     },
 };

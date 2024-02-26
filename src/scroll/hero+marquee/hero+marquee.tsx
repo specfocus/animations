@@ -2,14 +2,19 @@
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/all";
 import {useEffect, useRef, type FC} from "react";
-import {Main, MainImage, Slider, SliderContainer} from "./styled.module";
+import {Main, MainImage, Slider, SliderContainer, SliderParagraph} from "./styled.module";
 // import Image from "next/image";
 
-const Marquee: FC = () => {
+interface MarqueeHeroProps {
+    image: string;
+    text: string;
+}
 
-    const firstText = useRef(null);
-    const secondText = useRef(null);
-    const slider = useRef(null);
+const MarqueeHero: FC<MarqueeHeroProps> = ({image, text}) => {
+
+    const firstText = useRef<HTMLParagraphElement | null>(null);
+    const secondText = useRef<HTMLParagraphElement | null>(null);
+    const slider = useRef<HTMLDivElement | null>(null);
     let xPercent = 0;
     let direction = -1;
 
@@ -44,18 +49,18 @@ const Marquee: FC = () => {
     return (
         <Main>
             <MainImage
-                src="/medias/background.jpg"
+                src={image}
                 fill={true}
                 alt="background"
             />
             <SliderContainer>
                 <Slider ref={slider}>
-                    <p ref={firstText}>Freelance Developer -</p>
-                    <p ref={secondText}>Freelance Developer -</p>
+                    <SliderParagraph ref={firstText}>{text}</SliderParagraph>
+                    <SliderParagraph ref={secondText}>{text}</SliderParagraph>
                 </Slider>
             </SliderContainer>
         </Main>
     );
 };
 
-export default Marquee;
+export default MarqueeHero;
