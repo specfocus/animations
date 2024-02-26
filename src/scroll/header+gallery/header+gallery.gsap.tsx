@@ -1,26 +1,22 @@
 "use client";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {FC, useLayoutEffect, useRef} from "react";
+import {FC, MutableRefObject, useLayoutEffect, useRef} from "react";
 import Image from "../../next-image";
-import Picture1 from "../../../public/medias/parallax-scroll-1.jpg";
-import Picture2 from "../../../public/medias/parallax-scroll-2.jpg";
-import Picture3 from "../../../public/medias/parallax-scroll-3.jpg";
-import {Body, Container, ImageContainer, Images, Word} from "./styled.module";
+import {Body, ImageContainer, Images, Word} from "./styled.module";
 // import Image from "next/image";
 
-interface DocumentProps {
-    backgroundColor?: string;
+export interface HeaderAndGalleryProps {
+    container: MutableRefObject<HTMLDivElement | null>;
+    header: readonly [string, string, string];
+    images: string[];
     paddingTop?: string;
     minHeight?: string;
 }
 
 gsap.registerPlugin(ScrollTrigger);
-const word = "with gsap";
 
-const Document: FC<DocumentProps> = (props) => {
-    const container = useRef<any>(null);
-    const images = [Picture1, Picture2, Picture3];
+const HeaderAndGallery: FC<HeaderAndGalleryProps> = (props) => {
     const lettersRef = useRef<any[]>([]);
     const imagesRef = useRef<any[]>([]);
     const title1 = useRef<any>(null);
@@ -28,7 +24,7 @@ const Document: FC<DocumentProps> = (props) => {
         const context = gsap.context(() => {
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: container.current,
+                    trigger: props.container.current,
                     start: 'top bottom',
                     end: 'bottom top',
                     scrub: true,
@@ -47,14 +43,16 @@ const Document: FC<DocumentProps> = (props) => {
         return () => context.revert();
     }, []);
 
+    const [primary, secondary, tertiary] = props.header;
+
     return (
-        <Container {...props} ref={container}>
+        <>
             <Body>
-                <h1 ref={title1}>Parallax</h1>
-                <h1 >Scroll</h1>
+                <h1 ref={title1}>{primary}</h1>
+                <h1 >{secondary}</h1>
                 <Word>
                     {
-                        word.split('').map((letter, i) => {
+                        tertiary.split('').map((letter, i) => {
                             return <span key={`l_${i}`} ref={el => lettersRef.current[i] = el}>{letter}</span>;
                         })
                     }
@@ -62,7 +60,7 @@ const Document: FC<DocumentProps> = (props) => {
             </Body>
             <Images>
                 {
-                    images.map((image, i) => {
+                    props.images.map((image, i) => {
                         return (
                             <ImageContainer key={`i_${i}`} ref={el => imagesRef.current[i] = el}>
                                 <Image
@@ -76,14 +74,13 @@ const Document: FC<DocumentProps> = (props) => {
                     })
                 }
             </Images>
-        </Container>
+        </>
     );
 };
 
-Document.defaultProps = {
-    backgroundColor: '#3f3f3f',
+HeaderAndGallery.defaultProps = {
     paddingTop: '900px',
     minHeight: '2400px'
 };
 
-export default Document;
+export default HeaderAndGallery;

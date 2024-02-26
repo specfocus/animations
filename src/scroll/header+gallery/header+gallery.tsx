@@ -1,12 +1,9 @@
 "use client";
 import styled from "@emotion/styled";
 import {motion, useScroll, useTransform} from "framer-motion";
-import {FC, useRef} from "react";
+import {FC, MutableRefObject} from "react";
 import Image from "../../next-image";
-import Picture1 from "../../../public/medias/parallax-scroll-4.jpg";
-import Picture2 from "../../../public/medias/parallax-scroll-5.jpg";
-import Picture3 from "../../../public/medias/parallax-scroll-6.jpg";
-import {Body, Container, Images, Word} from "./styled.module";
+import {Body, Images, Word} from "./styled.module";
 // import Image from "next/image";
 
 export const ImageContainer = styled(motion.div)`
@@ -38,47 +35,42 @@ export const ImageContainer = styled(motion.div)`
     }
 `;
 
-interface DocumentProps {
+export interface HeaderAndGalleryProps {
+    container: MutableRefObject<HTMLDivElement | null>;
     backgroundColor?: string;
+    header: readonly [string, string, string];
+    images: readonly [string, string, string];
     paddingTop?: string;
     minHeight?: string;
 }
 
-const word = "with framer-motion";
-
-const Document: FC<DocumentProps> = (props) => {
-    const container = useRef<any>(null);
+const HeadersAndGallery: FC<HeaderAndGalleryProps> = (props) => {
     const {scrollYProgress} = useScroll({
-        target: container,
+        target: props.container,
         offset: ['start end', 'end start']
     });
+
     const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
     const md = useTransform(scrollYProgress, [0, 1], [0, -150]);
     const lg = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
-    const images = [
-        {
-            src: Picture1,
-            y: 0
-        },
-        {
-            src: Picture2,
-            y: lg
-        },
-        {
-            src: Picture3,
-            y: md
-        }
+    const y = [
+        0,
+        lg,
+        md,
+        sm
     ];
 
+    const [primary, secondary, tertiary] = props.header;
+
     return (
-        <Container {...props} ref={container}>
+        <>
             <Body>
-                <motion.h1 style={{y: sm}}>Parallax</motion.h1>
-                <h1>Scroll</h1>
+                <motion.h1 style={{y: sm}}>{primary}</motion.h1>
+                <h1>{secondary}</h1>
                 <Word>
                     {
-                        word.split('').map((letter, i) => {
+                        tertiary.split('').map((letter, i) => {
                             const y = useTransform(scrollYProgress, [0, 1], [0, Math.floor(Math.random() * -75) - 25]);
                             return <motion.span style={{top: y}} key={`l_${i}`} >{letter}</motion.span>;
                         })
@@ -87,9 +79,9 @@ const Document: FC<DocumentProps> = (props) => {
             </Body>
             <Images>
                 {
-                    images.map(({src, y}, i) => {
+                    props.images.map((src, i) => {
                         return (
-                            <ImageContainer style={{y}} key={`i_${i}`}>
+                            <ImageContainer style={{y: y[i]}} key={`i_${i}`}>
                                 <Image
                                     src={src}
                                     placeholder="blur"
@@ -101,14 +93,14 @@ const Document: FC<DocumentProps> = (props) => {
                     })
                 }
             </Images>
-        </Container>
+        </>
     );
 };
 
-Document.defaultProps = {
+HeadersAndGallery.defaultProps = {
     backgroundColor: '#3f3f3f',
     paddingTop: '900px',
     minHeight: '2400px'
 };
 
-export default Document;
+export default HeadersAndGallery;

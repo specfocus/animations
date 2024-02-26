@@ -1,17 +1,5 @@
 import styled from "@emotion/styled";
 
-export interface ContainerProps {
-    backgroundColor?: string;
-    paddingTop?: string;
-    minHeight?: string;
-}
-
-export const Container = styled.div<ContainerProps>`
-    background-color: ${props => props.backgroundColor || 'black'};
-    padding-top: ${props => props.paddingTop || '0px'};
-    min-height: ${props => props.minHeight || '100vh'};
-`;
-
 export const Body = styled.div`
     margin-left: 10vw;
 

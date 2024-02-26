@@ -1,36 +1,27 @@
-import styled from "@emotion/styled";
 import type {Meta, StoryObj} from "@storybook/react";
-import Lenis from "@studio-freight/lenis";
-import {useEffect} from "react";
-import GSAP from "./parallax-scroll.gsap";
+import {useRef, type FC} from "react";
+import useLenisEffect from "../../use-lenis-effect";
+import {Container} from "../page.module";
+import TrioGallery, {type TrioGalleryProps} from "./gallery+trio";
+import Picture4 from "/medias/parallax-scroll-4.jpg";
+import Picture5 from "/medias/parallax-scroll-5.jpg";
+import Picture6 from "/medias/parallax-scroll-6.jpg";
 
-const Container = styled.div`
-    margin-top: 10vh;
-    min-height: 100vh;
-`;
+const Page: FC<Omit<TrioGalleryProps, 'container'>> = props => {
+    useLenisEffect();
 
-const Page = () => {
-    useEffect( () => {
-        const lenis = new Lenis()
-        
-        function raf(time: number) {
-          lenis.raf(time)
-          requestAnimationFrame(raf)
-        }
-        
-        requestAnimationFrame(raf)
-    }, [])
+    const container = useRef<HTMLDivElement | null>(null);
 
     return (
-        <Container>
-            <GSAP />
+        <Container ref={container}>
+            <TrioGallery {...props} container={container} />
         </Container>
-    )
+    );
 };
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/parallax-with-gsap',
+    title: 'scroll/gallery+trio',
     component: Page,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -50,5 +41,6 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
     args: {
+        images: [Picture4, Picture5, Picture6]
     },
 };

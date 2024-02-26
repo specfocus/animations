@@ -1,13 +1,13 @@
 "use client";
 import styled from "@emotion/styled";
 import {FC, PropsWithChildren} from "react";
-import Picture1 from "../../../public/medias/zoom-parallax-1.jpg";
-import Picture2 from "../../../public/medias/zoom-parallax-2.jpg";
-import Picture3 from "../../../public/medias/zoom-parallax-3.jpg";
-import Picture4 from "../../../public/medias/zoom-parallax-4.jpg";
-import Picture5 from "../../../public/medias/zoom-parallax-5.jpg";
-import Picture6 from "../../../public/medias/zoom-parallax-6.jpg";
-import Picture7 from "../../../public/medias/zoom-parallax-7.jpg";
+import Picture1 from "/medias/zoom-parallax-1.jpg";
+import Picture2 from "/medias/zoom-parallax-2.jpg";
+import Picture3 from "/medias/zoom-parallax-3.jpg";
+import Picture4 from "/medias/zoom-parallax-4.jpg";
+import Picture5 from "/medias/zoom-parallax-5.jpg";
+import Picture6 from "/medias/zoom-parallax-6.jpg";
+import Picture7 from "/medias/zoom-parallax-7.jpg";
 import useLenisEffect from "../../use-lenis-effect";
 import GalleryZoom from "./gallery+zoom";
 
