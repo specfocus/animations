@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import GalleryZoom from "./gallery-zoom.example";
+import GalleryZoom from "./gallery+zoom.example";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/zoom-parallax',
+    title: 'scroll/gallery-zoom',
     component: GalleryZoom,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

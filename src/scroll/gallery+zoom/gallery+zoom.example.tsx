@@ -1,7 +1,6 @@
 "use client";
 import styled from "@emotion/styled";
-import Lenis from "@studio-freight/lenis";
-import {FC, PropsWithChildren, useEffect} from "react";
+import {FC, PropsWithChildren} from "react";
 import Picture1 from "../../../public/medias/zoom-parallax-1.jpg";
 import Picture2 from "../../../public/medias/zoom-parallax-2.jpg";
 import Picture3 from "../../../public/medias/zoom-parallax-3.jpg";
@@ -9,7 +8,8 @@ import Picture4 from "../../../public/medias/zoom-parallax-4.jpg";
 import Picture5 from "../../../public/medias/zoom-parallax-5.jpg";
 import Picture6 from "../../../public/medias/zoom-parallax-6.jpg";
 import Picture7 from "../../../public/medias/zoom-parallax-7.jpg";
-import GalleryZoom from "./gallery-zoom";
+import useLenisEffect from "../../use-lenis-effect";
+import GalleryZoom from "./gallery+zoom";
 
 const images = [Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7];
 
@@ -23,21 +23,9 @@ interface SmoothParallaxProps {
     backgroundColor?: string;
 }
 
-const SmoothParallax: FC<PropsWithChildren<SmoothParallaxProps>> = ({ backgroundColor }) => {
+const SmoothParallax: FC<PropsWithChildren<SmoothParallaxProps>> = ({backgroundColor}) => {
 
-    useEffect(
-        () => {
-            const lenis = new Lenis();
-
-            function raf(time: any) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-
-            requestAnimationFrame(raf);
-        },
-        []
-    );
+    useLenisEffect();
 
     return (
         <Main backgroundColor={backgroundColor}>
