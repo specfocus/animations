@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {type FC, useRef} from "react";
+import {type FC} from "react";
 import {Container, type ContainerProps} from "../page.module";
 import useLenisEffect from "../use-lenis-effect";
 import ZoomGallery, {type ZoomGalleryProps} from "./gallery+zoom";
@@ -11,14 +11,12 @@ import Picture5 from "/medias/zoom-parallax-5.jpg";
 import Picture6 from "/medias/zoom-parallax-6.jpg";
 import Picture7 from "/medias/zoom-parallax-7.jpg";
 
-const Page: FC<Omit<ZoomGalleryProps, 'container'> & ContainerProps> = ({backgroundColor, ...props}) => {
+const Page: FC<ZoomGalleryProps & ContainerProps> = ({backgroundColor, ...props}) => {
     useLenisEffect();
 
-    const container = useRef<HTMLDivElement | null>(null);
-
     return (
-        <Container ref={container} backgroundColor={backgroundColor}>
-            <ZoomGallery {...props} container={container} />
+        <Container backgroundColor={backgroundColor}>
+            <ZoomGallery {...props} />
         </Container>
     );
 };
