@@ -1,5 +1,5 @@
 "use client";
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, useLayoutEffect} from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
@@ -45,13 +45,15 @@ export default function BezierCurve({ color, width }: BezierCurveProps) {
     let time = Math.PI / 2;
     let reqId: any = null;
 
-    useEffect(() => {
-        setPath(progress);
-    }, []);
-
     const setPath = (progress: any) => {
-        const width = window.innerWidth * 0.7;
-        path.current?.setAttributeNS(null, "d", `M0 250 Q${width * x} ${250 + progress}, ${width} 250`);
+        const width = window.innerWidth * .96;
+        const start = (window.innerWidth - width) / 2;
+        path.current?.setAttributeNS(null, "d", `M${start} 250 Q${width * x} ${250 + progress}, ${width} 250`);
+    };
+
+    const resetAnimation = () => {
+        time = Math.PI / 2;
+        progress = 0;
     };
 
     const lerp = (x: any, y: any, a: any) => x * (1 - a) + y * a;
@@ -88,13 +90,9 @@ export default function BezierCurve({ color, width }: BezierCurveProps) {
         }
     };
 
-    const resetAnimation = () => {
-        time = Math.PI / 2;
-        progress = 0;
-    };
-
-    console.log("color", color);
-    console.log("width", width);
+    useLayoutEffect(() => {
+        setPath(progress);
+    }, [setPath, progress]);
 
     return (
         <Container>
