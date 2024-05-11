@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import SmoothScroll from "./smooth-scroll";
+import MarqueeHero from "./hero+marquee";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/smooth',
-    component: SmoothScroll,
+    title: 'scroll/hero+marquee',
+    component: MarqueeHero,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'fullscreen',
@@ -13,25 +13,17 @@ const meta = {
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        lines: {control: 'array'}
         // backgroundColor: {control: 'color'},
     },
-} satisfies Meta<typeof SmoothScroll>;
+} satisfies Meta<typeof MarqueeHero>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Demo: Story = {
+export const Primary: Story = {
     args: {
-        lines: [
-            'Los Flamencos National Reserve',
-            'is a nature reserve located',
-            'in the commune of San Pedro de Atacama',
-            'The reserve covers a total area',
-            'of 740 square kilometres (290 sq mi)'
-        ]
+        image: '/medias/background.jpeg',
+        text: 'World ● I am here! ● '
     },
 };
-
-

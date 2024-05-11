@@ -1,10 +1,36 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import SmoothScroll from "./smooth-scroll";
+import {useEffect, type FC} from "react";
+import TextBlock, {TextBlockProps} from "./text-block+rush";
 
+import HeroBackground from "../../static/hero-background";
+
+const Main: FC<TextBlockProps> = ({color, lines}) => {
+    useEffect(
+        () => {
+            (
+                async () => {
+                    const LocomotiveScroll = (await import('locomotive-scroll')).default;
+                    const locomotiveScroll = new LocomotiveScroll();
+                }
+            )();
+        },
+        []
+    );
+
+    return (
+        <>
+            <HeroBackground color={color} />
+            <HeroBackground color="black">
+                <TextBlock color={color} lines={lines} />
+            </HeroBackground>
+            <HeroBackground color={color} />
+        </>
+    );
+};
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'scroll/smooth',
-    component: SmoothScroll,
+    title: 'scroll/text-block+rush',
+    component: Main,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'fullscreen',
@@ -13,17 +39,19 @@ const meta = {
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
+        color: {control: 'color'},
         lines: {control: 'array'}
         // backgroundColor: {control: 'color'},
     },
-} satisfies Meta<typeof SmoothScroll>;
+} satisfies Meta<typeof TextBlock>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Demo: Story = {
+export const Primary: Story = {
     args: {
+        color: "white",
         lines: [
             'Los Flamencos National Reserve',
             'is a nature reserve located',
