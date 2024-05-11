@@ -42,6 +42,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",
+    "react-intersection-observer": "^9.8.1",
     "storybook": "^7.6.17",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"

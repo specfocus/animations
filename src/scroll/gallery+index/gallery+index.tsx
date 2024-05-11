@@ -1,30 +1,21 @@
+"use client";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {useLayoutEffect, useRef, useState} from "react";
-import {Column, ImageContainer, ProjectDescription, ProjectEl, ProjectList, Projects} from "./styled.module";
-import Image from "../../../next-image";
+import {useLayoutEffect, useRef, useState, type FC} from "react";
+import Image from "../../next-image";
+import {Column, ImageContainer, ProjectDescription, StyledIndexGallerySection, StyledIndexGalleryList, StyledIndexGallery} from "./styled.module";
 // import Image from "next/image";
 
-const projects = [
-    {
-        title: "Salar de Atacama",
-        src: "salar_de_atacama.jpg"
-    },
-    {
-        title: "Valle de la luna",
-        src: "valle_de_la_muerte.jpeg"
-    },
-    {
-        title: "Miscanti Lake",
-        src: "miscani_lake.jpeg"
-    },
-    {
-        title: "Miniques Lagoons",
-        src: "miniques_lagoon.jpg"
-    },
-];
+export interface Section {
+    title: string;
+    src: string;
+}
 
-export default function Index() {
+export interface IndexGalleryProps {
+    sections: Section[];
+}
+
+const IndexGallery: FC<IndexGalleryProps> = ({ sections }) => {
 
     const [selectedProject, setSelectedProject] = useState(0);
     const container = useRef(null);
@@ -41,11 +32,11 @@ export default function Index() {
     }, []);
 
     return (
-        <Projects ref={container}>
+        <StyledIndexGallery ref={container}>
             <ProjectDescription>
                 <ImageContainer ref={imageContainer}>
                     <Image
-                        src={`/medias/${projects[selectedProject].src}`}
+                        src={`/medias/${sections[selectedProject].src}`}
                         fill={true}
                         alt="project image"
                         priority={true}
@@ -59,17 +50,19 @@ export default function Index() {
                 </Column>
             </ProjectDescription>
 
-            <ProjectList>
+            <StyledIndexGalleryList>
                 {
-                    projects.map((project, index) => {
+                    sections.map((project, index) => {
                         return (
-                            <ProjectEl key={index} onMouseOver={() => {setSelectedProject(index);}}>
+                            <StyledIndexGallerySection key={index} onMouseOver={() => {setSelectedProject(index);}}>
                                 <h2>{project.title}</h2>
-                            </ProjectEl>
+                            </StyledIndexGallerySection>
                         );
                     })
                 }
-            </ProjectList>
-        </Projects>
+            </StyledIndexGalleryList>
+        </StyledIndexGallery>
     );
 }
+
+export default IndexGallery;

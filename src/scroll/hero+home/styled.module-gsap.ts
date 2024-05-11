@@ -7,9 +7,9 @@ export const HomeHeader = styled.div`
   justify-content: center;
 `;
 
-export const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div<{height: string}>`
   width: 100%;
-  height: 140vh;
+  height: ${props => props.height};
   position: absolute;
   filter: brightness(60%);
 

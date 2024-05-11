@@ -5,7 +5,6 @@ export const Main = styled.div`
     position: relative;
     display: flex;
     height: 100vh;
-    margin-bottom: 100vh;
     overflow: hidden;
 `;
 

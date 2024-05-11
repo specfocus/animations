@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Projects = styled.div`
+export const StyledIndexGallery = styled.div`
     position: relative;
     color: white;
     margin-top: 25vh;
@@ -36,14 +36,14 @@ export const Column = styled.div`
     }
 `;
 
-export const ProjectList = styled.div`
+export const StyledIndexGalleryList = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
     margin-top: 200px;
 `;
 
-export const ProjectEl = styled.div`
+export const StyledIndexGallerySection = styled.div`
     width: 100%;
     color: white;
     text-transform: uppercase;

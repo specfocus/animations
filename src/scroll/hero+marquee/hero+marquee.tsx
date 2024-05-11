@@ -6,11 +6,12 @@ import {Main, MainImage, Slider, SliderContainer, SliderParagraph} from "./style
 // import Image from "next/image";
 
 interface MarqueeHeroProps {
+    id?: string;
     image: string;
     text: string;
 }
 
-const MarqueeHero: FC<MarqueeHeroProps> = ({image, text}) => {
+const MarqueeHero: FC<MarqueeHeroProps> = ({id, image, text}) => {
 
     const firstText = useRef<HTMLParagraphElement | null>(null);
     const secondText = useRef<HTMLParagraphElement | null>(null);
@@ -47,7 +48,7 @@ const MarqueeHero: FC<MarqueeHeroProps> = ({image, text}) => {
     };
 
     return (
-        <Main>
+        <Main id={id}>
             <MainImage
                 src={image}
                 fill={true}
