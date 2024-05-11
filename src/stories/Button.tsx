@@ -1,6 +1,4 @@
-import React from "react";
-
-interface ButtonProps {
+export interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */

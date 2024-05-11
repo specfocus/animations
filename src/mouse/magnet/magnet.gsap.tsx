@@ -22,7 +22,7 @@ const Magnet: FC<MagnetProps> = ({children}) => {
             xTo(x);
             yTo(y);
         });
-        magnetic.current?.addEventListener('mouseleave', (e) => {
+        magnetic.current?.addEventListener('mouseleave', (_e: MouseEvent): void => {
             xTo(0);
             yTo(0);
         });

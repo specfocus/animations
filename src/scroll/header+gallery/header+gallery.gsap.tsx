@@ -33,7 +33,7 @@ const HeaderAndGallery: FC<HeaderAndGalleryProps> = (props) => {
                 .to(title1.current, {y: -50}, 0)
                 .to(imagesRef.current[1], {y: -150}, 0)
                 .to(imagesRef.current[2], {y: -255}, 0);
-            lettersRef.current.forEach((letter, i) => {
+            lettersRef.current.forEach((letter: any): void => {
                 tl.to(letter, {
                     top: Math.floor(Math.random() * -75) - 25,
                 }, 0);

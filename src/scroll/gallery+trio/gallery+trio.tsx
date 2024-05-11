@@ -1,12 +1,12 @@
 "use client";
 import styled from "@emotion/styled";
 import {motion, useScroll, useTransform} from "framer-motion";
-import {type FC, type MutableRefObject} from "react";
+import React, {type PropsWithChildren, type FC, type MutableRefObject} from "react";
 import Image from "../../next-image";
 import {Images} from "./styled.module";
 // import Image from "next/image";
 
-export const ImageContainer = styled(motion.div)`
+export const ImageContainer: any = styled(motion.div)<PropsWithChildren>`
     position: absolute;
     img {
         object-fit: cover;

@@ -19,8 +19,8 @@ const FunHeader: FC<FunHeaderProps> = (props) => {
     });
 
     const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
-    const md = useTransform(scrollYProgress, [0, 1], [0, -150]);
-    const lg = useTransform(scrollYProgress, [0, 1], [0, -250]);
+    // const md = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    // const lg = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
     const [primary, secondary, tertiary] = props.header;
 

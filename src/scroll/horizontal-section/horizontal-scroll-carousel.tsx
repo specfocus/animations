@@ -40,7 +40,7 @@ const HorizontalScrollCarousel = () => {
     );
 };
 
-const Card = ({card}) => {
+const Card = ({card}: any) => {
     return (
         <div
             key={card.id}

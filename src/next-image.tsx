@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-interface NextImageProps {
+export interface NextImageProps {
     src: string;
     placeholder?: string; // URL for the blurred placeholder image
     alt: string;

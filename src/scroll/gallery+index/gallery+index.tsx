@@ -36,7 +36,7 @@ const IndexGallery: FC<IndexGalleryProps> = ({ sections }) => {
             <ProjectDescription>
                 <ImageContainer ref={imageContainer}>
                     <Image
-                        src={`/medias/${sections[selectedProject].src}`}
+                        src={`/medias/${sections[selectedProject]?.src}`}
                         fill={true}
                         alt="project image"
                         priority={true}

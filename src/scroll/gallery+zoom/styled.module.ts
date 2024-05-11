@@ -13,7 +13,7 @@ export const Sticky = styled.div`
   height: 100vh;
 `;
 
-export const El = styled(motion.div)`
+export const El: any = styled(motion.div)`
     width: 100%;
     height: 100%;
     top: 0;

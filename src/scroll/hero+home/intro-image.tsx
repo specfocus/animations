@@ -1,10 +1,11 @@
+import "@emotion/react";
 import styled from "@emotion/styled";
 import {motion, useAnimation} from "framer-motion";
 import {useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 
 // Assuming IntroImage is styled similarly to BackgroundImage
-export const IntroImageStyled = styled(motion.div)`
+export const IntroImageStyled: any = styled(motion.div)`
   filter: brightness(70%);
   width: 350px; // or adapt to your design
   height: 475px; // or adapt to your design

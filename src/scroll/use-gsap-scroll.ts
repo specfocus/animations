@@ -29,6 +29,8 @@ const useGsapScroll = ({animate, ref}: UseGsapScrollOptions) => {
         },
         []
     );
+
+    return direction;
 };
 
 export default useGsapScroll;

@@ -33,7 +33,7 @@ const TrioGallery: FC<TrioGalleryProps> = (props) => {
                 .to(title1.current, {y: -50}, 0)
                 .to(imagesRef.current[1], {y: -150}, 0)
                 .to(imagesRef.current[2], {y: -255}, 0);
-            lettersRef.current.forEach((letter, i) => {
+            lettersRef.current.forEach((letter: any) => {
                 tl.to(letter, {
                     top: Math.floor(Math.random() * -75) - 25,
                 }, 0);

@@ -1,10 +1,7 @@
 "use client";
-import styles from "./page.module.scss";
-import {type FC, useEffect, useRef, useState} from "react";
-import {animate} from "framer-motion";
 import styled from "@emotion/styled";
-
-
+import {animate} from "framer-motion";
+import {useEffect, useRef, type FC} from "react";
 
 const GooeyCanvas = styled.svg`
     width: 500px;
@@ -19,15 +16,13 @@ const GooeyCanvas = styled.svg`
     }
 `;
 
-
-
 interface GooeyProps {
     index: number;
     setIndex: (index: number) => void;
     paths: string[];
 }
 
-const Gooey: FC<GooeyProps> = ({paths: numbers, index, setIndex}) => {
+const Gooey: FC<GooeyProps> = ({paths: numbers, index}) => {
 
     const circles = useRef<(SVGCircleElement | null)[]>([]);
     const paths = useRef<(SVGPathElement | null)[]>([]);

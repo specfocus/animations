@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import HeroBackground from "../../static/hero-background";
-import useLocomotiveScroll from "../use-locomotive-scroll";
+// import useLocomotiveScroll from "../use-locomotive-scroll";
 import HomeHero from "./hero+home-gsap";
 
 function Main() {

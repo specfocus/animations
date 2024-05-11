@@ -1,5 +1,5 @@
 "use client";
-import {useRef, useEffect, useLayoutEffect} from "react";
+import {useRef, useLayoutEffect} from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`

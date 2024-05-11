@@ -1,12 +1,12 @@
 import {useEffect} from "react";
 
-const useLocomotiveScroll = () => {
+const useLocomotiveScroll = (): void => {
     useEffect(
-        () => {
+        (): void => {
             (
                 async () => {
                     const LocomotiveScroll = (await import('locomotive-scroll')).default;
-                    const locomotiveScroll = new LocomotiveScroll();
+                    /*const locomotiveScroll =*/ new LocomotiveScroll();
                 }
             )();
         },

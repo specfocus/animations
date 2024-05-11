@@ -5,7 +5,7 @@ import {useEffect, useRef, type FC} from "react";
 import {Main, MainImage, Slider, SliderContainer, SliderParagraph} from "./styled.module";
 // import Image from "next/image";
 
-interface MarqueeHeroProps {
+export interface MarqueeHeroProps {
     id?: string;
     image: string;
     text: string;
