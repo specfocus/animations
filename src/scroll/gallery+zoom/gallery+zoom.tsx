@@ -1,7 +1,7 @@
-import {useScroll, useTransform} from "framer-motion";
+import {useScroll, useTransform, motion} from "framer-motion";
 import {useRef, type FC} from "react";
 import Image from "../../next-image";
-import {Container, El, ImageContainer, Sticky} from "./styled.module";
+import {Container, El, ImageContainer, Sticky, Wrapper} from "./styled.module";
 // import Image from "next/image";
 
 export interface ZoomGalleryProps {
@@ -34,16 +34,18 @@ const ZoomGallery: FC<ZoomGalleryProps> = ({images}) => {
                     pictures.map(
                         ({src, scale}, index) => {
                             return (
-                                <El key={index} style={{scale}}>
-                                    <ImageContainer nth={0}>
-                                        <Image
-                                            src={src}
-                                            fill
-                                            alt="image"
-                                            placeholder='blur'
-                                        />
-                                    </ImageContainer>
-                                </El>
+                                <Wrapper key={index} as={motion.div} style={{scale} as any}>
+                                    <El>
+                                        <ImageContainer>
+                                            <Image
+                                                src={src}
+                                                fill
+                                                alt="image"
+                                                placeholder='blur'
+                                            />
+                                        </ImageContainer>
+                                    </El>
+                                </Wrapper>
                             );
                         })
                 }
