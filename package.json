@@ -19,7 +19,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@specfocus/typescript": "workspace:*",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
     "@storybook/addon-links": "^8.6.14",
@@ -46,5 +46,13 @@
     "storybook": "^8.6.14",
     "typescript": "^5",
     "vite": "^5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/specfocus/animations.git"
   }
 }
